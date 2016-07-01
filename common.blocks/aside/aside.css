@@ -1,0 +1,37 @@
+.aside
+{
+    float: left;
+
+    min-width: 160px;
+    margin: 0 0  0 -200px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.aside__item
+{
+    font-size: 16px;
+    line-height: 20px;
+    padding: 5px 0;
+}
+
+.aside__item:hover
+{
+    background-color: rgba(255, 255, 160, .35);
+}
+
+.aside__item_current
+{
+    padding-left: 23px;
+    background: #ffeba0;
+}
+
+.aside__item .link
+{
+    display: block;
+    padding: 0 23px;
+
+    color: #000;
+    text-decoration: none;
+}

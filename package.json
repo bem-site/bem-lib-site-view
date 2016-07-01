@@ -1,0 +1,34 @@
+{
+  "name": "bem-lib-site-view",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladimir Grinenko <i@tadatuta.com>",
+  "license": "MPL-2.0",
+  "bin": {
+    "bem-lib-site-view": "./bin/bem-lib-site-view"
+  },
+  "dependencies": {
+    "bem-config": "^1.1.0",
+    "bem-md-renderer": "^0.3.1",
+    "bem-walk": "1.0.0-alpha1",
+    "del": "^2.2.0",
+    "glob": "^7.0.0",
+    "highlight.js": "^9.2.0",
+    "js-beautify": "^1.6.2",
+    "lodash": "^4.6.1",
+    "mkdirp": "^0.5.1",
+    "vow": "^0.4.12"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "enb": "^1.1.2",
+    "enb-bem-techs": "^2.2.1",
+    "enb-bemxjst": "^5.0.0",
+    "enb-js": "^1.1.0",
+    "enb-stylus": "^2.2.0"
+  }
+}

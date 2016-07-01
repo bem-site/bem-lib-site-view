@@ -1,0 +1,44 @@
+.header
+{
+    position: relative;
+
+    height: 72px;
+    padding-right: 140px;
+
+    white-space: nowrap;
+
+    background: #e5f8e0;
+}
+
+/*.page_site_index .header
+{
+    background: #eee;
+}
+
+.page_site_methodology .header
+{
+    background: #fed;
+}
+
+.page_site_platform .header
+{
+    background: #e5f8e0;
+}
+
+.page_site_community .header
+{
+    background: #fa9;
+}
+
+.page_site_forum .header
+{
+    background: #aaa;
+}*/
+
+.header__item
+{
+    position: absolute;
+    top: 0;
+    right: 24px;
+}
+

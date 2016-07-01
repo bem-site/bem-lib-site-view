@@ -1,0 +1,13 @@
+{
+  "name": "bem-lib-site-view",
+  "description": "",
+  "ignore": [
+    ".bem/cache",
+    "node_modules",
+    "libs"
+  ],
+  "private": true,
+  "dependencies": {
+    "bem-components": "^3.0.0"
+  }
+}

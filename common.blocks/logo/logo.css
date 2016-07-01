@@ -1,0 +1,11 @@
+.logo
+{
+    display: inline-block;
+
+    width: 35px;
+    height: 30px;
+    margin: 21px 13px 21px 23px;
+
+    background: url(logo.svg) no-repeat;
+    background-size: 100% 100%;
+}

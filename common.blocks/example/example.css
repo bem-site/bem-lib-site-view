@@ -1,0 +1,29 @@
+.example
+{
+    margin-bottom: 16px;
+}
+
+.example__info
+{
+    margin-bottom: 8px;
+}
+
+.example__info .link
+{
+    margin-right: 2em;
+}
+
+.example__preview
+{
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    /*min-height: 50px;*/
+
+    /*border: 1px solid #e6e6e6;*/
+    border: none;
+
+    /*resize: both;*/
+}
