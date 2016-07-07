@@ -1,20 +1,16 @@
-.example
-{
+.example {
     margin-bottom: 16px;
 }
 
-.example__info
-{
+.example__info {
     margin-bottom: 8px;
 }
 
-.example__info .link
-{
+.example__info .link {
     margin-right: 2em;
 }
 
-.example__preview
-{
+.example__preview {
     position: relative;
 
     z-index: 1;

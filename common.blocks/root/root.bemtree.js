@@ -15,10 +15,10 @@ block('root').replace()(function() {
         block: 'page',
         title: ctx.title,
         head: [
-            { elem: 'css', url: path.join(path.relative(url, rootUrl), 'index.css') }
+            { elem: 'css', url: path.join('..', path.relative(url, rootUrl), 'index.css') }
         ],
         scripts: [
-            { elem: 'js', url: path.join(path.relative(url, rootUrl), 'index.js') }
+            { elem: 'js', url: path.join('..', path.relative(url, rootUrl), 'index.js') }
         ],
         mods: {
             theme: 'islands',

@@ -1,5 +1,4 @@
-.aside
-{
+.aside {
     float: left;
 
     min-width: 160px;
@@ -9,26 +8,22 @@
     list-style: none;
 }
 
-.aside__item
-{
+.aside__item {
     font-size: 16px;
     line-height: 20px;
     padding: 5px 0;
 }
 
-.aside__item:hover
-{
+.aside__item:hover {
     background-color: rgba(255, 255, 160, .35);
 }
 
-.aside__item_current
-{
+.aside__item_current {
     padding-left: 23px;
     background: #ffeba0;
 }
 
-.aside__item .link
-{
+.aside__item .link {
     display: block;
     padding: 0 23px;
 

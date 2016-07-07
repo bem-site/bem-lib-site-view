@@ -1,22 +1,18 @@
-.section
-{
+.section {
     margin-top: 20px;
 }
 
-.section__title
-{
+.section__title {
     font: 40px Helvetica, sans-serif;
 
     text-align: center;
 }
 
-.section__title_main
-{
+.section__title_main {
     font-size: 48px;
 }
 
-.section__description
-{
+.section__description {
     font-size: 22px;
 
     color: #888;
