@@ -8,6 +8,7 @@
     "url": "git://github.com/bem-site/bem-lib-site-view.git"
   },
   "scripts": {
+    "prepublish": "enb make",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vladimir Grinenko <i@tadatuta.com>",
@@ -17,7 +18,7 @@
   },
   "files": [
     "bin",
-    "desktop.bundles",
+    "desktop.bundles/**",
     "lib",
     "index.js"
   ],
