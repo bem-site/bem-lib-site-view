@@ -15,6 +15,12 @@
   "bin": {
     "bem-lib-site-view": "./bin/bem-lib-site-view"
   },
+  "files": [
+    "bin",
+    "desktop.bundles",
+    "lib",
+    "index.js"
+  ],
   "dependencies": {
     "bem-config": "^2.0.1",
     "bem-md-renderer": "^0.3.1",
