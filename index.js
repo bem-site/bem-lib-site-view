@@ -8,6 +8,10 @@ var path = require('path'),
 
 module.exports = function(pathToData) {
     // TODO: перенести все, что здесь не потребовалось в process-blocks
+    if (!pathToData) {
+        throw new Error('Please provide path to library data');
+    }
+
     var data = require(path.resolve(pathToData, 'data')),
         lib = Object.keys(data)[0],
         libConfig = config.libs[lib] || {},
