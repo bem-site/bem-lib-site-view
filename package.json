@@ -25,6 +25,7 @@
   "dependencies": {
     "bem-config": "^2.0.1",
     "bem-md-renderer": "^0.3.1",
+    "bem-naming": "^1.0.1",
     "bem-walk": "1.0.0-alpha1",
     "cpy": "^4.0.1",
     "del": "^2.2.1",
