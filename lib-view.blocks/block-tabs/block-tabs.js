@@ -1,4 +1,4 @@
-modules.define('tabs', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
+modules.define('block-tabs', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod: {

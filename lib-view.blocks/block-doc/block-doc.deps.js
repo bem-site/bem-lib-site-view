@@ -1,0 +1,3 @@
+({
+    shouldDeps: ['block-example', 'hljs']
+})

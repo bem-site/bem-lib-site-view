@@ -1,9 +1,10 @@
 ({
     shouldDeps: [
-        'doc',
-        'example',
+        'block-doc',
+        'block-tabs',
+        'block-example',
         'github-markdown-css',
-        'anchor',
+        'block-anchor',
         { block: 'block-jsdoc', mods: { engine: ['jsd', 'jsdoc3'] } }
     ]
 })

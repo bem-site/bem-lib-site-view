@@ -1,4 +1,4 @@
-block('doc').content()(function() {
+block('block-doc').content()(function() {
     var path = require('path'),
         data = this.data,
         outputFolder = data.outputFolder,
@@ -11,7 +11,7 @@ block('doc').content()(function() {
             var exampleName = chunk.split('/').pop();
 
             return {
-                block: 'example',
+                block: 'block-example',
                 url: path.resolve(outputFolder, lib, exampleName)
             };
         });

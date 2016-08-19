@@ -1,3 +1,3 @@
 ({
-    shouldDeps: ['aside', 'content', 'tabs', 'section']
+    shouldDeps: ['block-list', 'block-info']
 })

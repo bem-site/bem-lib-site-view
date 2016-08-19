@@ -1,11 +1,17 @@
 block('main').content()(function() {
     return [
         {
-            block: 'aside',
-            content: this.data.blocks
+            elem: 'sidebar',
+            content: {
+                block: 'block-list',
+                content: this.data.blocks
+            }
         },
         {
-            block: 'content'
+            elem: 'content',
+            content:  {
+                block: 'block-info'
+            }
         }
     ];
 });
