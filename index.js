@@ -33,7 +33,8 @@ module.exports = function(pathToData) {
 
     return del(outputFolder).then(function() {
         return Promise.all(langs.map(function(lang) {
-            var folder = path.join(outputFolder, lang);
+            var folder = path.join(outputFolder, lang),
+                platformsGlob = platforms.length > 1 ? '{' + platforms.join() + '}' : platforms[0];
 
             return Promise.all([
                 fsHelpers.touch(path.join(folder, '.nojekyll')),
@@ -42,7 +43,7 @@ module.exports = function(pathToData) {
                     path.join(__dirname, 'favicon.ico'),
                     path.join(pathToData, 'favicon.ico')
                 ], folder),
-                cpy([path.join(pathToData, '{' + platforms.join() + '}' + '.examples', '**', '*.{html,css,js}')], outputFolder)
+                cpy([path.join(pathToData, platformsGlob + '.examples', '**', '*.{html,css,js}')], outputFolder)
             ]).then(function() { return processBlocks(pathToData); });
         }));
     })
