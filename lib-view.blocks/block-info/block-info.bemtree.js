@@ -1,4 +1,4 @@
-block('content').content()(function() {
+block('block-info').content()(function() {
     var data = this.data,
         jsdoc = data.jsdoc,
         hasDocs = data.content,
@@ -9,10 +9,10 @@ block('content').content()(function() {
         hasSources = data.blockSources;
 
     return data.url === data.rootUrl ? {
-        block: 'doc',
+        block: 'block-doc',
         content: data.content
     } : {
-        block: 'tabs',
+        block: 'block-tabs',
         content: [
             hasDocs ? {
                 elem: 'tab',
@@ -42,7 +42,7 @@ block('content').content()(function() {
                 elem: 'pane',
                 elemMods: { active: true },
                 content: {
-                    block: 'doc',
+                    block: 'block-doc',
                     content: data.content
                 }
             } : '',

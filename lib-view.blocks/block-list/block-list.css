@@ -1,29 +1,27 @@
-.aside {
-    float: left;
-
-    min-width: 160px;
-    margin: 0 0  0 -200px;
+.block-list {
+    margin: 0;
     padding: 0;
 
     list-style: none;
 }
 
-.aside__item {
+.block-list__item {
     font-size: 16px;
     line-height: 20px;
+
     padding: 5px 0;
 }
 
-.aside__item:hover {
-    background-color: rgba(255, 255, 160, .35);
+.block-list__item:hover {
+    background: rgba(255, 255, 160, .35);
 }
 
-.aside__item_current {
+.block-list__item_current {
     padding-left: 23px;
     background: #ffeba0;
 }
 
-.aside__item .link {
+.block-list__link {
     display: block;
     padding: 0 23px;
 

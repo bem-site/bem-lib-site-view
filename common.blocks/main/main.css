@@ -1,4 +1,13 @@
 .main {
-    border-left: 200px solid transparent;
-    /*padding: 14px;*/
+    display: flex;
+}
+
+.main__sidebar {
+    width: 200px;
+    min-width: 160px;
+    margin-top: 20px;
+}
+
+.main__content {
+    /* ? flex-grow */
 }

@@ -52,7 +52,7 @@ block('block-jsdoc').mod('engine', 'jsd')(
             return {
                 block: 'link',
                 url: applyNext(),
-                mix: { block: 'anchor' }
+                mix: { block: 'block-anchor' }
             };
         })
     )

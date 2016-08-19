@@ -1,4 +1,4 @@
-block('aside').content()(function() {
+block('block-list').content()(function() {
     var data = this.data,
         currentPage = data.url;
 
@@ -10,6 +10,7 @@ block('aside').content()(function() {
             elemMods: { current: isCurrent },
             content: isCurrent ? page : {
                 block: 'link',
+                mix: { block: 'block-list', elem: 'link' },
                 url: (data.isRoot ? '' : '../') + page + '/',
                 content: page
             }

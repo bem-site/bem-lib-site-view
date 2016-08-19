@@ -1,4 +1,4 @@
-block('tabs')(
+block('block-tabs')(
     js()(true),
     elem('tab').content()(function() {
         return {

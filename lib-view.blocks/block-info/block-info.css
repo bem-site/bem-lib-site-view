@@ -1,16 +1,16 @@
-.content {
+.block-info {
     margin: 20px 24px 0 20px;
 }
 
-.content h1,
-.content h2,
-.content h3,
-.content h4 {
+.block-info h1,
+.block-info h2,
+.block-info h3,
+.block-info h4 {
     font-weight: normal;
 }
 
-/*TODO: mix tabs__panes with coresponding content elems and move these styles out of here */
-.tabs__pane a {
+/*TODO: mix tabs__panes with coresponding block-info elems and move these styles out of here */
+.block-tabs__pane a {
     color: #44b;
     cursor: pointer;
     transition: color 0.15s ease-out;
@@ -19,25 +19,25 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
-.tabs__pane a:hover {
+.block-tabs__pane a:hover {
     color: #e00;
 }
 
 /*
-.content table {
+.block-info table {
     border: 2px solid #f3f1ee;
     border-spacing: 0;
     margin: 20px 0;
 }
 
-.content th,
-.content td {
+.block-info th,
+.block-info td {
     border-bottom: 2px solid #f3f1ee;
     border-right: 1px solid #f3f1ee;
     padding: 5px 10px;
 }
 
-.content td {
+.block-info td {
     border-bottom: 1px solid #f3f1ee;
 }
 */

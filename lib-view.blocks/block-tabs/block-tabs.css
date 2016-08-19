@@ -1,8 +1,8 @@
-.tabs {
+.block-tabs {
     margin-bottom: 28px;
 }
 
-.tabs__tab {
+.block-tabs__tab {
     position: relative;
 
     display: inline-block;
@@ -12,7 +12,7 @@
     font-size: 16px;
 }
 
-.tabs__tab:after {
+.block-tabs__tab:after {
   position: absolute;
   right: 0;
   bottom: -8px;
@@ -20,24 +20,24 @@
   content: '';
 }
 
-.tabs__tab:hover:after {
+.block-tabs__tab:hover:after {
     border-bottom: 2px solid;
 }
 
-.tabs__tab_current:after {
+.block-tabs__tab_current:after {
     border-bottom: 3px solid;
 }
 
-.tabs__ancor {
+.block-tabs__ancor {
     color: #000;
     text-decoration: none;
 }
 
-.tabs__pane {
+.block-tabs__pane {
     display: none;
     margin-top: 30px;
 }
 
-.tabs__pane_active {
+.block-tabs__pane_active {
     display: block;
 }
