@@ -5,7 +5,7 @@ block('block-example').content()(function() {
         hljs = require('highlight.js'),
         beautify = require('js-beautify'),
         nodeEval = require('node-eval'),
-        data = this.data,
+        data = this.ctx.data,
         pageUrl = data.url,
         url = this.ctx.url,
         bundleName = url.split('/').pop(),

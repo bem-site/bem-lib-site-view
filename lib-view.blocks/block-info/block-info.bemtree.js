@@ -1,5 +1,5 @@
 block('block-info').content()(function() {
-    var data = this.data,
+    var data = this.ctx.data,
         jsdoc = data.jsdoc,
         hasDocs = data.content,
         hasJsdoc = jsdoc && (typeof jsdoc === 'string' ||
@@ -10,7 +10,8 @@ block('block-info').content()(function() {
 
     return data.url === data.rootUrl ? {
         block: 'block-doc',
-        content: data.content
+        content: data.content,
+        data: data
     } : {
         block: 'block-tabs',
         content: [
@@ -43,7 +44,8 @@ block('block-info').content()(function() {
                 elemMods: { active: true },
                 content: {
                     block: 'block-doc',
-                    content: data.content
+                    content: data.content,
+                    data: data
                 }
             } : '',
             hasJsdoc ? {

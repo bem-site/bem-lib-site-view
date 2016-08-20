@@ -1,6 +1,6 @@
 block('block-doc').content()(function() {
     var path = require('path'),
-        data = this.data,
+        data = this.ctx.data,
         outputFolder = data.outputFolder,
         lib = data.lib.name;
 
@@ -12,7 +12,8 @@ block('block-doc').content()(function() {
 
             return {
                 block: 'block-example',
-                url: path.resolve(outputFolder, lib, exampleName)
+                url: path.resolve(outputFolder, lib, exampleName),
+                data: data
             };
         });
 });

@@ -10,7 +10,8 @@ block('main').content()(function() {
         {
             elem: 'content',
             content:  {
-                block: 'block-info'
+                block: 'block-info',
+                data: this.data
             }
         }
     ];
