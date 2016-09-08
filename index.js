@@ -31,7 +31,7 @@ module.exports = function(pathToData) {
 
     langs.length || langs.push('');
 
-    return del(outputFolder).then(function() {
+    return del(outputFolder, { force: true }).then(function() {
         return Promise.all(langs.map(function(lang) {
             var folder = path.join(outputFolder, lang),
                 platformsGlob = platforms.length > 1 ? '{' + platforms.join() + '}' : platforms[0];
