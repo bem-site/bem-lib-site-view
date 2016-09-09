@@ -62,8 +62,9 @@ block('block-info').content()(function() {
                 elemMods: { active: !hasDocs && !hasJsdoc },
                 content: data.examples.map(function(example) {
                     return {
-                        block: 'example',
-                        url: example.path
+                        block: 'block-example',
+                        url: example.path,
+                        data: data
                     };
                 })
             } : '',
