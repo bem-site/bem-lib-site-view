@@ -68,7 +68,11 @@ block('block-example').content()(function() {
             } catch(e) {
                 // console.error(e);
                 console.log('No example file', pathToBundle + '.bh.js', 'was found, falling back to BEMHTML...');
-                html = require(pathToBundle + '.bemhtml.js').BEMHTML.apply(bemjson);
+                try {
+                    html = require(pathToBundle + '.bemhtml.js').BEMHTML.apply(bemjson);
+                } catch (e) {
+                    html = '<pre>' + e.stack + '</pre>'
+                }
             }
 
         return {

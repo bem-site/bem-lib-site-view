@@ -1,6 +1,14 @@
 block('block-info').content()(function() {
-    var data = this.ctx.data,
-        jsdoc = data.jsdoc,
+    var data = this.ctx.data;
+
+    if (!data.blockName)
+        return {
+            block: 'block-doc',
+            content: data.content,
+            data: data
+        };
+
+    var jsdoc = data.jsdoc,
         hasDocs = data.content,
         hasJsdoc = jsdoc && (typeof jsdoc === 'string' ||
             (Array.isArray(jsdoc) && jsdoc.length && Object.keys(jsdoc[0].data).length) ||
@@ -8,11 +16,7 @@ block('block-info').content()(function() {
         hasExamples = data.examples && data.examples.length,
         hasSources = data.blockSources;
 
-    return data.url === data.rootUrl ? {
-        block: 'block-doc',
-        content: data.content,
-        data: data
-    } : {
+    return {
         block: 'block-tabs',
         content: [
             hasDocs ? {

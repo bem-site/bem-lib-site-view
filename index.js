@@ -43,9 +43,9 @@ module.exports = function(pathToData) {
                     path.join(__dirname, 'favicon.ico'),
                     path.join(pathToData, 'favicon.ico')
                 ], folder),
-                cpy([path.join(pathToData, platformsGlob + '.examples', '**', '*.{html,css,js}')], outputFolder)
-            ]).then(function() { return processBlocks(pathToData); });
-        }));
+                // cpy([path.join(pathToData, platformsGlob + '.examples', '**', '*.{html,css,js}')], outputFolder)
+            ]).then(function() { return processBlocks(pathToData, langs, lang); });
+        }))
     })
     // TODO: remove
     .catch(console.error);

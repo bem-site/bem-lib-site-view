@@ -1,7 +1,8 @@
 block('header').content()(function() {
     var data = this.data,
-        rootUrl = data.rootUrl,
-        url = data.url;
+        page = data.page,
+        rootUrl = page.rootUrl,
+        url = page.url;
 
     return [
         {
