@@ -8,7 +8,7 @@ provide(BEMDOM.decl(this.name, {
                     var select = e.target,
                         location = window.location;
 
-                    location.href = location.href.replace('/' + this.params.currentLang + '/', '/' + select.getVal() + '/');
+                    location.href = location.href.replace('/' + this.params.lang + '/', '/' + select.getVal() + '/');
                 }, this);
             }
         }

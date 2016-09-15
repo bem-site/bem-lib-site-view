@@ -1,6 +1,8 @@
 .header {
     position: relative;
 
+    display: flex;
+
     height: 72px;
     padding-right: 140px;
 
@@ -9,30 +11,16 @@
     background: #e5f8e0;
 }
 
-/*
-.page_site_index .header {
-    background: #eee;
+.header__breadcrumbs {
+    flex-grow: 1;
+
+    margin-top: 30px;
 }
 
-.page_site_methodology .header {
-    background: #fed;
+.header__docs {
+    margin-top: 17px;
 }
 
-.page_site_platform .header {
-    background: #e5f8e0;
-}
-
-.page_site_community .header {
-    background: #fa9;
-}
-
-.page_site_forum .header {
-    background: #aaa;
-}
-*/
-
-.header__item {
-    position: absolute;
-    top: 0;
-    right: 24px;
+.header__lang {
+    margin-top: 22px;
 }

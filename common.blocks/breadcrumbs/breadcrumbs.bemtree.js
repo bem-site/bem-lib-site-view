@@ -1,9 +1,15 @@
 block('breadcrumbs').content()(function() {
-    var lib = this.data.lib;
+    var data = this.data,
+        page = data.page,
+        content = data.library + (data.version ? ('@' + data.version) : '');
 
     return {
         elem: 'item',
         elemMods: { level: 1 },
-        content: lib.name + (lib.version ? ('@' + lib.version) : '')
+        content: page.url === '/' ? content : {
+            block: 'link',
+            url: data.blockName ? '../../' : '../',
+            content: content
+        }
     };
 });

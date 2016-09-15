@@ -1,18 +1,23 @@
 block('block-info').content()(function() {
-    var data = this.ctx.data,
-        jsdoc = data.jsdoc,
-        hasDocs = data.content,
+    var data = this.ctx.data;
+
+    if (!data.blockName) {
+        return {
+            block: 'block-doc',
+            content: data.content,
+            data: data
+        };
+    }
+
+    var jsdoc = data.jsdoc,
+        hasDocs = data.content[data.lang],
         hasJsdoc = jsdoc && (typeof jsdoc === 'string' ||
             (Array.isArray(jsdoc) && jsdoc.length && Object.keys(jsdoc[0].data).length) ||
             jsdoc.methods && jsdoc.methods.length),
         hasExamples = data.examples && data.examples.length,
         hasSources = data.blockSources;
 
-    return data.url === data.rootUrl ? {
-        block: 'block-doc',
-        content: data.content,
-        data: data
-    } : {
+    return {
         block: 'block-tabs',
         content: [
             hasDocs ? {
@@ -44,7 +49,7 @@ block('block-info').content()(function() {
                 elemMods: { active: true },
                 content: {
                     block: 'block-doc',
-                    content: data.content,
+                    content: data.content[data.lang],
                     data: data
                 }
             } : '',

@@ -1,4 +1,3 @@
 block('nav')(
-    tag()('ul'),
-    elem('item').tag()('li')
+    tag()('nav')
 );

@@ -1,9 +1,9 @@
 block('block-list').content()(function() {
     var data = this.data,
-        currentPage = data.url;
+        currentPage = data.page.url;
 
     return applyNext().map(function(page) {
-        var isCurrent = data.rootUrl + page === currentPage;
+        var isCurrent = data.page.rootUrl + page === currentPage;
 
         return {
             elem: 'item',
@@ -11,7 +11,7 @@ block('block-list').content()(function() {
             content: isCurrent ? page : {
                 block: 'link',
                 mix: { block: 'block-list', elem: 'link' },
-                url: (data.isRoot ? '' : '../') + page + '/',
+                url: (data.setPath ? data.setPath + '/' : '../') + page + '/',
                 content: page
             }
         };
