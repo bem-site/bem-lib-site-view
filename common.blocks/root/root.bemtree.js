@@ -1,24 +1,24 @@
 block('root').replace()(function() {
     var path = require('path'),
-        ctx = this.ctx,
-        data = ctx.data,
-        rootUrl = data.rootUrl,
-        url = data.url,
+        data = this.ctx.data,
+        page = data.page,
+        url = page.url,
+        rootUrl = page.rootUrl,
         // FIXME:
-        site = rootUrl === '/' ? 'index' : rootUrl.split('/')[1];
+        site = rootUrl === '/' ? 'index' : rootUrl.split('/')[1],
+        cssPath = path.join(path.relative(url, rootUrl), site + '.css'),
+        jsPath = path.join(path.relative(url, rootUrl), site + '.js');
 
-    // console.log('url', url, 'rootUrl', rootUrl, 'rel', path.relative(url, rootUrl))
-
-    this.data = ctx.data;
+    this.data = data;
 
     return {
         block: 'page',
-        title: ctx.title,
+        title: page.title,
         head: [
-            { elem: 'css', url: path.join('..', path.relative(url, rootUrl), 'index.css') }
+            { elem: 'css', url: cssPath }
         ],
         scripts: [
-            { elem: 'js', url: path.join('..', path.relative(url, rootUrl), 'index.js') }
+            { elem: 'js', url: jsPath }
         ],
         mods: {
             theme: 'islands',

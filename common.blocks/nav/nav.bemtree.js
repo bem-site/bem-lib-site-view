@@ -1,5 +1,25 @@
 block('nav').content()(function() {
     var data = this.data,
+        page = data.page,
+        url = page.url;
+
+    return [
+        'migration',
+        'changelog'
+    ].filter(function(item) {
+        return data.docs[data.lang][item];
+    }).map(function(doc) {
+        var isCurrent = url === '/' + doc;
+
+        return {
+            block: 'link',
+            mix: { block: 'nav', elem: 'link' },
+            url: !isCurrent && (data.blockName ? '../../' : url !== '/' ? '../' : '') + doc,
+            content: doc
+        }
+    });
+/*
+    var data = this.data,
         rootUrl = data.rootUrl,
         lang = data.lang;
 
@@ -21,4 +41,5 @@ block('nav').content()(function() {
             }
         };
     }, this);
+*/
 });

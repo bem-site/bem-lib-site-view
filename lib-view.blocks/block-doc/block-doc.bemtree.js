@@ -2,7 +2,7 @@ block('block-doc').content()(function() {
     var path = require('path'),
         data = this.ctx.data,
         outputFolder = data.outputFolder,
-        lib = data.lib.name;
+        lib = data.library;
 
     return applyNext().split(/<!-- bem-example: (.*?) -->/)
         .map(function(chunk, idx) {

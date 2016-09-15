@@ -1,12 +1,12 @@
 block('block-example').content()(function() {
-    var path = require('path'),
-        fs = require('fs'),
+    var fs = require('fs'),
+        path = require('path'),
         util = require('util'),
         hljs = require('highlight.js'),
         beautify = require('js-beautify'),
         nodeEval = require('node-eval'),
         data = this.ctx.data,
-        pageUrl = data.url,
+        pageUrl = data.page.url,
         url = this.ctx.url,
         bundleName = url.split('/').pop(),
         // pathToBundle = path.resolve(url, bundleName),
@@ -15,7 +15,7 @@ block('block-example').content()(function() {
         // htmlUrl = bundleName + '/' + bundleName + '.html',
         // htmlUrl = data.rootUrl + bundleName + '.html',
         // htmlUrl = ['..', '..', path.relative(pageUrl, data.rootUrl), bundleName + '.html'].join('/'),
-        htmlUrl = ['..', '..', path.relative(pageUrl, data.rootUrl), bundleName + '.html'].join('/'),
+        htmlUrl = ['..', '..', path.relative(pageUrl, data.page.rootUrl), bundleName + '.html'].join('/'),
         // htmlUrl = pathToBundle + '.html',
         exampleSources = data.examplesSources && data.examplesSources[bundleName] || [];
 
@@ -68,7 +68,12 @@ block('block-example').content()(function() {
             } catch(e) {
                 // console.error(e);
                 console.log('No example file', pathToBundle + '.bh.js', 'was found, falling back to BEMHTML...');
-                html = require(pathToBundle + '.bemhtml.js').BEMHTML.apply(bemjson);
+                try {
+                    html = require(pathToBundle + '.bemhtml.js').BEMHTML.apply(bemjson);
+                } catch (e) {
+                    console.error('Error: No example file', pathToBundle + '.bemhtml.js', 'was found');
+                    html = '<pre>' + e.stack + '</pre>'
+                }
             }
 
         return {
