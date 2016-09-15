@@ -4,7 +4,7 @@ block('main').content()(function() {
             elem: 'sidebar',
             content: {
                 block: 'block-list',
-                content: this.data.blockList
+                data: this.data
             }
         },
         {

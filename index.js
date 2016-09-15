@@ -14,7 +14,6 @@ var path = require('path'),
     BEMHTML = require(path.join(pathToBundle, bundleName + '.bemhtml')).BEMHTML;
 
 module.exports = function(pathToData) {
-    // TODO: перенести все, что здесь не потребовалось в process-blocks
     if (!pathToData) {
         throw new Error('Please provide path to library data');
     }
@@ -32,7 +31,7 @@ module.exports = function(pathToData) {
                     path.join(__dirname, 'desktop.bundles', 'index', 'index.{css,js}'),
                     path.join(__dirname, 'favicon.ico'),
                     path.join(pathToData, 'favicon.ico')
-                ], folder)
+                ], folder),
                 processDocs(data, lang, BEMTREE, BEMHTML),
                 processBlocks(data, lang, BEMTREE, BEMHTML)
             );

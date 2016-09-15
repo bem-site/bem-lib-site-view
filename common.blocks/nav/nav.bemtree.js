@@ -3,18 +3,15 @@ block('nav').content()(function() {
         page = data.page,
         url = page.url;
 
-    return [
-        'migration',
-        'changelog'
-    ].filter(function(item) {
-        return data.docs[item][data.lang === 'en' ? '' : data.lang];
+    return Object.keys(data.docs).filter(function(doc) {
+        return doc !== 'readme';
     }).map(function(doc) {
-        var isCurrent = url === '/' + doc;
+        var isCurrent = url === '/' + doc + '/';
 
         return {
             block: 'link',
             mix: { block: 'nav', elem: 'link' },
-            url: !isCurrent && (data.blockName ? '../../' : url !== '/' ? '../' : '') + doc,
+            url: !isCurrent && (data.blockName ? '../../' : url !== '/' ? '../' : '') + doc + '/',
             content: doc
         }
     });
