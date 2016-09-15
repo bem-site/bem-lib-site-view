@@ -5,18 +5,12 @@ block('block-example').content()(function() {
         hljs = require('highlight.js'),
         beautify = require('js-beautify'),
         nodeEval = require('node-eval'),
-        data = this.ctx.data,
+        ctx = this.ctx,
+        data = ctx.data,
         pageUrl = data.page.url,
-        url = this.ctx.url,
-        bundleName = url.split('/').pop(),
-        // pathToBundle = path.resolve(url, bundleName),
-        pathToBundle = url,
-        // pathToBundle = ['..', '..', path.relative(pageUrl, data.rootUrl), bundleName].join('/'),
-        // htmlUrl = bundleName + '/' + bundleName + '.html',
-        // htmlUrl = data.rootUrl + bundleName + '.html',
-        // htmlUrl = ['..', '..', path.relative(pageUrl, data.rootUrl), bundleName + '.html'].join('/'),
-        htmlUrl = ['..', '..', path.relative(pageUrl, data.page.rootUrl), bundleName + '.html'].join('/'),
-        // htmlUrl = pathToBundle + '.html',
+        bundleName = ctx.name,
+        pathToBundle = ctx.path,
+        htmlUrl = bundleName + '.html',
         exampleSources = data.examplesSources && data.examplesSources[bundleName] || [];
 
     data.mode === 'server' && console.log(require('child_process').execSync(path.resolve('./node_modules/.bin/magic') + ' make ' + url, {
@@ -62,19 +56,19 @@ block('block-example').content()(function() {
             console.log('Error while evaluating', pathToBundle + '.bemjson.js');
             console.log(err);
         }
-            // TODO: support BEMHTML optionally
+
+        // TODO: support BEMHTML optionally
+        try {
+            html = require(pathToBundle + '.bh.js').apply(bemjson);
+        } catch(e) {
+            // console.log('No example file', pathToBundle + '.bh.js', 'was found, falling back to BEMHTML...');
             try {
-                html = require(pathToBundle + '.bh.js').apply(bemjson);
+                html = require(pathToBundle + '.bemhtml.js').BEMHTML.apply(bemjson);
             } catch(e) {
-                // console.error(e);
-                console.log('No example file', pathToBundle + '.bh.js', 'was found, falling back to BEMHTML...');
-                try {
-                    html = require(pathToBundle + '.bemhtml.js').BEMHTML.apply(bemjson);
-                } catch (e) {
-                    console.error('Error: No example file', pathToBundle + '.bemhtml.js', 'was found');
-                    html = '<pre>' + e.stack + '</pre>'
-                }
+                console.error('Error: No example file', pathToBundle + '.bemhtml.js', 'was found');
+                html = '<pre>' + e.stack + '</pre>'
             }
+        }
 
         return {
             block: 'block-source',

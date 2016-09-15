@@ -20,25 +20,19 @@ module.exports = function(pathToData) {
     }
 
     var data = prepareData(pathToData, config),
-        outputFolder = data.outputFolder,
-        langs = data.langs;
+        outputFolder = data.outputFolder;
 
     return del(outputFolder, { force: true }).then(function() {
-        return Promise.all(langs.reduce(function(promises, lang) {
-            var folder = path.join(outputFolder, lang),
-                setsNames = data.setsNames,
-                setsGlob = setsNames.length > 1 ? '{' + setsNames.join() + '}' : setsNames[0];
+        return Promise.all(data.langs.reduce(function(promises, lang) {
+            var folder = path.join(outputFolder, lang);
 
             return promises.concat(
-                [
-                    fsHelpers.touch(path.join(folder, '.nojekyll')),
-                    cpy([
-                        path.join(__dirname, 'desktop.bundles', 'index', 'index.{css,js}'),
-                        path.join(__dirname, 'favicon.ico'),
-                        path.join(pathToData, 'favicon.ico')
-                    ], folder),
-                    // cpy([path.join(pathToData, setsGlob + '.examples', '**', '*.{html,css,js}')], outputFolder),
-                ],
+                fsHelpers.touch(path.join(folder, '.nojekyll')),
+                cpy([
+                    path.join(__dirname, 'desktop.bundles', 'index', 'index.{css,js}'),
+                    path.join(__dirname, 'favicon.ico'),
+                    path.join(pathToData, 'favicon.ico')
+                ], folder)
                 processDocs(data, lang, BEMTREE, BEMHTML),
                 processBlocks(data, lang, BEMTREE, BEMHTML)
             );
