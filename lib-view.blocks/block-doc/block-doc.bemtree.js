@@ -1,18 +1,19 @@
 block('block-doc').content()(function() {
     var path = require('path'),
-        data = this.ctx.data,
-        outputFolder = data.outputFolder,
-        lib = data.library;
+        data = this.ctx.data;
 
     return applyNext().split(/<!-- bem-example: (.*?) -->/)
         .map(function(chunk, idx) {
             if (!(idx % 2)) return chunk;
 
-            var exampleName = chunk.split('/').pop();
+            var exampleName = chunk.split('/').pop(),
+                examplePath = path.resolve(data.outputFolder, data.lang,
+                    data.setName, data.blockName, exampleName);
 
             return {
                 block: 'block-example',
-                url: path.resolve(outputFolder, lib, exampleName),
+                name: exampleName,
+                path: examplePath,
                 data: data
             };
         });
