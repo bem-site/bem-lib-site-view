@@ -7,7 +7,7 @@ block('nav').content()(function() {
         'migration',
         'changelog'
     ].filter(function(item) {
-        return data.docs[data.lang][item];
+        return data.docs[item][data.lang === 'en' ? '' : data.lang];
     }).map(function(doc) {
         var isCurrent = url === '/' + doc;
 
