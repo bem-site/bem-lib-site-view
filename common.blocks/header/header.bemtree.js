@@ -5,11 +5,13 @@ block('header').content()(function() {
         url = page.url;
 
     return [
+/*
         {
             block: 'logo',
             mix: { block: 'header', elem: 'logo' },
             url: url !== rootUrl && rootUrl
         },
+*/
         {
             block: 'breadcrumbs',
             mix: { block: 'header', elem: 'breadcrumbs' }

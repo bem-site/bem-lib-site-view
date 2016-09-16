@@ -1,32 +1,43 @@
 .block-list {
+    font-size: 16px;
+    line-height: 20px;
+
+    margin: 0 0 0 23px;
+
+    white-space: nowrap;
+}
+
+.block-list__set-name {
+    color: #999;
+}
+
+.block-list__set-list {
+    margin: 0 0 15px;
+}
+
+.block-list__blocks {
     margin: 0;
     padding: 0;
 
     list-style: none;
 }
 
-.block-list__item {
-    font-size: 16px;
-    line-height: 20px;
-
-    padding: 5px 0;
-
-    white-space: nowrap;
+.block-list__link,
+.block-list__block_current {
+    padding: 5px 5px 5px 23px;
 }
 
-.block-list__item:hover {
-    background: rgba(255, 255, 160, .35);
-}
-
-.block-list__item_current {
-    padding-left: 23px;
+.block-list__block_current {
     background: #ffeba0;
 }
 
 .block-list__link {
     display: block;
-    padding: 0 23px;
 
     color: #000;
     text-decoration: none;
+}
+
+.block-list__link:hover {
+    background: rgba(255, 255, 160, .35);
 }
