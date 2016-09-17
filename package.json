@@ -8,7 +8,7 @@
     "url": "git://github.com/bem-site/bem-lib-site-view.git"
   },
   "scripts": {
-    "prepublish": "enb make",
+    "prepublish": "bower install && enb make",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vladimir Grinenko <i@tadatuta.com>",
