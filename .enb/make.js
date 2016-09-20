@@ -1,3 +1,5 @@
+'use strict';
+
 var techs = {
         // essential
         fileProvider: require('enb/techs/file-provider'),
@@ -23,14 +25,14 @@ var techs = {
         { path: 'libs/bem-components/desktop.blocks', check: false },
         { path: 'libs/bem-components/design/common.blocks', check: false },
         { path: 'libs/bem-components/design/desktop.blocks', check: false },
-        'common.blocks',
-        'lib-view.blocks'
+        'blocks/layout',
+        'blocks/lib-view'
     ];
 
 module.exports = function(config) {
     var isProd = process.env.YENV === 'production';
 
-    config.nodes('*.bundles/*', function(nodeConfig) {
+    config.nodes('bundles/*', function(nodeConfig) {
         nodeConfig.addTechs([
             // essential
             [enbBemTechs.levels, { levels: levels }],
