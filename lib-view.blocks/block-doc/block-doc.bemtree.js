@@ -7,7 +7,7 @@ block('block-doc').content()(function() {
             if (!(idx % 2)) return chunk;
 
             var exampleName = chunk.split('/').pop(),
-                examplePath = path.resolve(data.outputFolder, data.lang,
+                examplePath = path.resolve(data.outputLibFolder,
                     data.setName, data.blockName, exampleName);
 
             return {
