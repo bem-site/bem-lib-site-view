@@ -7,7 +7,6 @@ block('block-example').content()(function() {
         nodeEval = require('node-eval'),
         ctx = this.ctx,
         data = ctx.data,
-        pageUrl = data.page.url,
         bundleName = ctx.name,
         pathToBundle = ctx.path,
         htmlUrl = bundleName + '.html',
