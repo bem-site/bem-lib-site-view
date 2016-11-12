@@ -1,22 +1,22 @@
 block('block-list').content()(function() {
-    var data = this.ctx.data,
-        currentPage = data.page.url;
+    var data = this.data,
+        page = data.page,
+        currentPage = page.url;
 
-    return data.setsNames.map(function(set) {
+    return (page.setsList || data.setsList).map(function(set) {
         return [
             {
                 elem: 'set-name',
-                content: set
+                content: set.name
             },
             {
                 elem: 'set-list',
                 content: {
                     elem: 'blocks',
-                    content: data.sets[set].map(function(block) {
-                        var blockName = block.blockName,
-                            blockUrl = set + '/' + blockName + '/',
-                            pageUrl = data.page.rootUrl + blockUrl,
-                            isCurrent = pageUrl === currentPage;
+                    content: set.blocks.map(function(blockName) {
+                        var blockUrl = set.name + '/' + blockName + '/',
+                            isCurrent = currentPage.lastIndexOf(blockUrl) !== -1,
+                            libRoot = page.libRoot;
 
                         return {
                             elem: 'block',
@@ -24,7 +24,7 @@ block('block-list').content()(function() {
                             content: isCurrent ? blockName : {
                                 block: 'link',
                                 mix: { block: 'block-list', elem: 'link' },
-                                url: (data.setPath !== undefined ? data.setPath : '../../') + blockUrl,
+                                url: (libRoot !== undefined ? libRoot : '../../') + blockUrl,
                                 content: blockName
                             }
                         };

@@ -68,7 +68,8 @@ block('block-info').content()(function() {
                 content: data.examples.map(function(example) {
                     return {
                         block: 'block-example',
-                        url: example.path,
+                        name: example.name,
+                        path: example.path,
                         data: data
                     };
                 })
