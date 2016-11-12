@@ -190,8 +190,10 @@ block('block-jsdoc').mod('engine', 'jsd')(
     elem('block-name').content()(function() {
         var entity = applyNext(),
             entityIndex = this.ctx.index,
-            bemNaming = require('bem-naming'),
-            blockName = typeof entity !== 'object' ? entity : bemNaming.isBlock(entity) ?
+
+            bemNaming = require('bem-naming');
+
+        var blockName = typeof entity !== 'object' ? entity : bemNaming.isBlock(entity) ?
                 (this.ctx.isBem ? 'Block ' : 'Module ') + entity.block : bemNaming.stringify(entity);
 
         return [
