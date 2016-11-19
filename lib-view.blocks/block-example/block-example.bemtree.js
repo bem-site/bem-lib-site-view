@@ -42,7 +42,14 @@ block('block-example').content()(function() {
         }
 
         // standalone examples
-        return fs.readFileSync(pathToBundle + '.bemjson.js', 'utf8');
+        try {
+            return fs.readFileSync(pathToBundle + '.bemjson.js', 'utf8');
+        } catch(err) {
+            var message = 'Error: No example file ' + path.join(pathToBundle, '.bemhtml.js') + ' was found';
+
+            console.error(message);
+            return '{ content: "' + message + '" }'
+        }
     }
 
     function getHtml() {
