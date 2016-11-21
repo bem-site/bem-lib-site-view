@@ -8,12 +8,13 @@ block('block-doc').content()(function() {
 
             var exampleName = chunk.split('/').pop(),
                 examplePath = path.resolve(data.outputLibFolder,
-                    data.setName, data.blockName, exampleName);
+                    data.setName, exampleName);
 
             return {
                 block: 'block-example',
                 name: exampleName,
                 path: examplePath,
+                inline: true,
                 data: data
             };
         });

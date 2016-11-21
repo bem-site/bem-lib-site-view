@@ -9,7 +9,8 @@ block('block-example').content()(function() {
         data = ctx.data,
         bundleName = ctx.name,
         pathToBundle = ctx.path,
-        htmlUrl = bundleName + '.html',
+        examplesUrlPrefix = data.examplesUrlPrefix || '../../..',
+        htmlUrl = (ctx.inline ? examplesUrlPrefix + '/' + data.setName + '/' : '') + bundleName + '.html',
         exampleSources = data.examplesSources && data.examplesSources[bundleName] || [];
 
     data.mode === 'server' && console.log(require('child_process').execSync(path.resolve('./node_modules/.bin/magic') + ' make ' + url, {
@@ -38,14 +39,14 @@ block('block-example').content()(function() {
         for (var i = 0; i < examples.length; i++) {
             if (examples[i].name === bundleName) {
                 return examples[i].source;
-            };
+            }
         }
 
         // standalone examples
         try {
             return fs.readFileSync(pathToBundle + '.bemjson.js', 'utf8');
         } catch(err) {
-            var message = 'Error: No example file ' + path.join(pathToBundle, '.bemhtml.js') + ' was found';
+            var message = 'Error: No example file ' + pathToBundle + '.bemjson.js' + ' was found';
 
             console.error(message);
             return '{ content: "' + message + '" }'
