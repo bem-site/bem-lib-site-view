@@ -65,34 +65,42 @@ block('block-info').content()(function() {
             hasExamples ? {
                 elem: 'pane',
                 elemMods: { active: !hasDocs && !hasJsdoc },
-                content: data.examples.map(function(example) {
-                    return {
-                        block: 'block-example',
-                        name: example.name,
-                        path: example.path,
-                        data: data
-                    };
-                })
+                // TODO: унести в block-examples.bemtree.js ?
+                content: {
+                    block: 'block-examples',
+                    content: data.examples.map(function(example) {
+                        return {
+                            block: 'block-example',
+                            name: example.name,
+                            path: example.path,
+                            data: data
+                        };
+                    })
+                }
             } : '',
             hasSources ? {
                 elem: 'pane',
                 elemMods: { active: !hasDocs && !hasJsdoc && !hasExamples },
-                // TODO: FIXME
-                content: data.blockSources.filter(function(file) {
-                    return !file.isDir;
-                })
-                .map(function(file) {
-                    var filePath = file.path;
+                // TODO: унести в block-sources.bemtree.js ?
+                content: {
+                    block: 'block-sources',
+                    content: data.blockSources.filter(function(file) {
+                            return !file.isDir;
+                        })
+                        .map(function(file) {
+                            var filePath = file.path;
 
-                    return {
-                        tag: 'li',
-                        content: filePath.indexOf('http') > -1 ? {
-                            block: 'link',
-                            url: filePath,
-                            content: filePath
-                        } : filePath
-                    };
-                })
+                            return {
+                                elem: 'item',
+                                content: filePath.indexOf('http') > -1 ? {
+                                    block: 'link',
+                                    mix: { elem: 'link' },
+                                    url: filePath,
+                                    content: filePath
+                                } : filePath
+                            };
+                        })
+                }
             } : ''
         ]
     }
