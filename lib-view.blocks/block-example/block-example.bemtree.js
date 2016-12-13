@@ -38,7 +38,7 @@ block('block-example').content()(function() {
 
         for (var i = 0; i < examples.length; i++) {
             if (examples[i].name === bundleName) {
-                return examples[i].source;
+                return '(' + examples[i].source + ')';
             }
         }
 
@@ -48,6 +48,7 @@ block('block-example').content()(function() {
         } catch(err) {
             var message = 'Error: No example file ' + pathToBundle + '.bemjson.js' + ' was found';
 
+            console.error(err);
             console.error(message);
             return '{ content: "' + message + '" }'
         }
@@ -55,13 +56,13 @@ block('block-example').content()(function() {
 
     function getHtml() {
         var bemjson = {},
-            html = '';
+            html = '',
+            bemhtml;
 
         try {
-            bemjson = nodeEval('(' + getBemjson() + ')');
+            bemjson = nodeEval(getBemjson());
         } catch(err) {
-            console.log('Error while evaluating', pathToBundle + '.bemjson.js');
-            console.log(err);
+            console.log(err.stack);
         }
 
         // TODO: support BEMHTML optionally
@@ -72,7 +73,8 @@ block('block-example').content()(function() {
             try {
                 html = require(pathToBundle + '.bemhtml.js').BEMHTML.apply(bemjson);
             } catch(e) {
-                console.error('Error: No example file', pathToBundle + '.bemhtml.js', 'was found');
+                console.error(e);
+                console.error('Error: Cannot apply templates', pathToBundle + '.bemhtml.js');
                 html = '<pre>' + e.stack + '</pre>'
             }
         }
