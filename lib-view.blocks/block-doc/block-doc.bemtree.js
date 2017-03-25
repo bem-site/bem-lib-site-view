@@ -9,7 +9,7 @@ block('block-doc').content()(function() {
             var exampleName = chunk.split('/').pop(),
                 examplePath = path.resolve(data.outputLibFolder,
                     data.setName, exampleName),
-                pathToExample = chunk.replace('tmp/data', '.cache/bem-lib-site-data'), // FIXME: упячка
+                pathToExample = chunk.replace('tmp/data', 'node_modules/bem.info-data'), // FIXME: упячка
                 pathToHtml = path.resolve(pathToExample.replace(/\/(.*?)\.examples\//, '/$1.html/'));
 
             return {
