@@ -72,7 +72,7 @@ block('block-info').content()(function() {
                         return {
                             block: 'block-example',
                             name: example.name,
-                            path: example.path,
+                            pathToHtml: example.pathToHtml,
                             data: data
                         };
                     })
