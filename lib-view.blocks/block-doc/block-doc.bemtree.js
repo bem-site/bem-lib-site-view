@@ -4,7 +4,7 @@ block('block-doc').content()(function() {
 
     return applyNext().split(/<!-- bem-example: (.*?) -->/)
         .map(function(chunk, idx) {
-            if (!(idx % 2)) return chunk;
+            if (!(idx % 2)) return { html: chunk };
 
             var exampleName = chunk.split('/').pop(),
                 examplePath = path.resolve(data.outputLibFolder,

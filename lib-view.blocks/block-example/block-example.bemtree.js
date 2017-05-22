@@ -62,7 +62,7 @@ block('block-example').content()(function() {
                     switcher: 'HTML',
                     popup: {
                         block: 'block-source',
-                        content: getHtml()
+                        content: { html: getHtml() }
                     }
                 },
                 {
@@ -71,7 +71,7 @@ block('block-example').content()(function() {
                     switcher: 'BEMJSON',
                     popup: {
                         block: 'block-source',
-                        content: getBemjson()
+                        content: { html: getBemjson() }
                     }
                 },
                 getDeps() ? {
@@ -80,7 +80,7 @@ block('block-example').content()(function() {
                     switcher: 'deps',
                     popup: {
                         block: 'block-source',
-                        content: getDeps()
+                        content: { html: getDeps() }
                     }
                 } : ''
             ]

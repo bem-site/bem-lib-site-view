@@ -4,7 +4,7 @@ block('block-info').content()(function() {
     if (!data.blockName) {
         return {
             block: 'block-doc',
-            content: data.content,
+            content: { html: data.content },
             data: data
         };
     }

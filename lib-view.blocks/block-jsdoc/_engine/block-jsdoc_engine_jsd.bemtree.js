@@ -90,7 +90,7 @@ block('block-jsdoc').mod('engine', 'jsd')(
                                 elem: 'toc-link',
                                 attrs: { href: '#jsdoc-' + key + '-' + method.index },
                                 content: key
-                            }, '<br>');
+                            }, { html: '<br>' });
                         });
                         contentItemEntities.push({ elem: 'methods', content: publicMethods, title: name });
                     }
