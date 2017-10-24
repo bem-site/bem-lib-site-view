@@ -17,12 +17,12 @@ var techs = {
     },
     enbBemTechs = require('enb-bem-techs'),
     levels = [
-        { path: 'libs/bem-core/common.blocks', check: false },
-        { path: 'libs/bem-core/desktop.blocks', check: false },
-        { path: 'libs/bem-components/common.blocks', check: false },
-        { path: 'libs/bem-components/desktop.blocks', check: false },
-        { path: 'libs/bem-components/design/common.blocks', check: false },
-        { path: 'libs/bem-components/design/desktop.blocks', check: false },
+        { path: 'node_modules/bem-core/common.blocks', check: false },
+        { path: 'node_modules/bem-core/desktop.blocks', check: false },
+        { path: 'node_modules/bem-components/common.blocks', check: false },
+        { path: 'node_modules/bem-components/desktop.blocks', check: false },
+        { path: 'node_modules/bem-components/design/common.blocks', check: false },
+        { path: 'node_modules/bem-components/design/desktop.blocks', check: false },
         'common.blocks',
         'lib-view.blocks'
     ];
@@ -42,7 +42,7 @@ module.exports = function(config) {
             [techs.stylus, {
                 target: '?.css',
                 autoprefixer: {
-                    browsers: ['ie >= 10', 'last 2 versions', 'opera 12.1', '> 2%']
+                    browsers: ['ie >= 10', 'last 2 versions', '> 2%']
                 },
                 url: 'inline',
                 compress: true

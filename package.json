@@ -8,7 +8,7 @@
     "url": "git://github.com/bem-site/bem-lib-site-view.git"
   },
   "scripts": {
-    "prepublish": "bower install && enb make",
+    "prepublish": "enb make",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vladimir Grinenko <i@tadatuta.com>",
@@ -37,11 +37,12 @@
     "node-eval": "^1.0.2"
   },
   "devDependencies": {
-    "bower": "^1.7.9",
-    "enb": "^1.4.0",
-    "enb-bem-techs": "^2.2.1",
-    "enb-bemxjst": "^6.5.0",
-    "enb-js": "^1.1.0",
-    "enb-stylus": "^2.3.0"
+    "bem-components": "^6.0.1",
+    "bem-core": "^3.2.1",
+    "enb": "^1.5.1",
+    "enb-bem-techs": "^2.2.2",
+    "enb-bemxjst": "^8.6.7",
+    "enb-js": "^1.1.1",
+    "enb-stylus": "^2.4.0"
   }
 }
