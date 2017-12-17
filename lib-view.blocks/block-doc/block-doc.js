@@ -1,6 +1,6 @@
-modules.define('block-doc', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
+modules.define('block-doc', ['i-bem-dom', 'jquery'], function(provide, bemDom, $) {
 
-provide(BEMDOM.decl(this.name, {
+provide(bemDom.declBlock(this.name, {
     onSetMod: {
         js: {
             inited: function() {

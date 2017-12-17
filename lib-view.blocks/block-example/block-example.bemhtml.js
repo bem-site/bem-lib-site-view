@@ -1,8 +1,8 @@
 block('block-example')(
-    js()(true),
+    addJs()(true),
     elem('preview')(
         tag()('iframe'),
-        attrs()(function() {
+        addAttrs()(function() {
             return { src: this.ctx.url };
         })
     )

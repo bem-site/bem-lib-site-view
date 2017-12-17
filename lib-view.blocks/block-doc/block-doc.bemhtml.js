@@ -1,4 +1,4 @@
 block('block-doc')(
-    js()(true),
+    addJs()(true),
     cls()('article')
 );

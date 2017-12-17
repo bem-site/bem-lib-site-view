@@ -1,4 +1,5 @@
 ({
+    mustDeps: 'i-bem-dom',
     shouldDeps: [
         { elems: ['switcher', 'icon'] },
         'form',

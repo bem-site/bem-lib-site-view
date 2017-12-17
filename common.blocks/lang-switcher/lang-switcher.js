@@ -1,15 +1,15 @@
-modules.define('lang-switcher', ['i-bem__dom', 'select'], function(provide, BEMDOM, Select) {
+modules.define('lang-switcher', ['i-bem-dom', 'select'], function(provide, bemDom, Select) {
 
-provide(BEMDOM.decl(this.name, {
+provide(bemDom.declBlock(this.name, {
     onSetMod: {
         js: {
             inited: function() {
-                Select.on(this.domElem, 'change', function(e) {
-                    var select = e.target,
+                this._events(Select).on('change', function(e) {
+                    var select = e.bemTarget,
                         location = window.location;
 
                     location.href = location.href.replace('/' + this.params.lang + '/', '/' + select.getVal() + '/');
-                }, this);
+                });
             }
         }
     }

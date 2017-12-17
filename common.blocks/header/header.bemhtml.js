@@ -1,1 +1,1 @@
-block('header').mix()({ block: 'clearfix' });
+block('header').addMix()({ block: 'clearfix' });

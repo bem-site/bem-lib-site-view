@@ -1,7 +1,4 @@
 ({
-    mustDeps: [
-        'i-bem'
-    ],
     shouldDeps: [
         {
             elems: ['item']

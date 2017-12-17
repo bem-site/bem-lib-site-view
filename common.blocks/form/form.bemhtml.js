@@ -1,15 +1,11 @@
 block('form')(
     tag()('form'),
-    attrs()(function() {
+    addAttrs()(function() {
         var ctx = this.ctx;
 
-        return this.extend(
-            {
-                action: ctx.action,
-                method: ctx.method
-            },
-            applyNext()
-        );
-
+        return {
+            action: ctx.action,
+            method: ctx.method
+        };
     })
 );

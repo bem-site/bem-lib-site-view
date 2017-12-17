@@ -1,8 +1,9 @@
 block('block-doc').content()(function() {
     var path = require('path'),
-        data = this.ctx.data;
+        data = this.ctx.data,
+        content = applyNext();
 
-    return applyNext().html.split(/<!-- bem-example: (.*?) -->/)
+    return (typeof content === 'string' ? content : content.html).split(/<!-- bem-example: (.*?) -->/)
         .map(function(chunk, idx) {
             if (!(idx % 2)) return { html: chunk };
 

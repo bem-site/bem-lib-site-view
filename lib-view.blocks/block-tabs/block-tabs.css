@@ -10,6 +10,8 @@
     cursor: pointer;
 
     font-size: 16px;
+    color: #000;
+    text-decoration: none;
 }
 
 .block-tabs__tab:after {
@@ -26,11 +28,6 @@
 
 .block-tabs__tab_current:after {
     border-bottom: 3px solid;
-}
-
-.block-tabs__ancor {
-    color: #000;
-    text-decoration: none;
 }
 
 .block-tabs__pane {

@@ -1,11 +1,11 @@
-modules.define('block-example', ['i-bem__dom'], function(provide, BEMDOM) {
+modules.define('block-example', ['i-bem-dom'], function(provide, bemDom) {
 
-provide(BEMDOM.decl(this.name, {
+provide(bemDom.declBlock(this.name, {
     onSetMod: {
         js: {
             inited: function() {
                 var _this = this,
-                    $iframe = this.elem('preview'),
+                    $iframe = this._elem('preview').domElem,
                     iframe = $iframe[0];
 
 

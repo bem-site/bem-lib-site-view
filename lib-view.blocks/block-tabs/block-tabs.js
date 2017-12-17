@@ -1,26 +1,32 @@
-modules.define('block-tabs', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
+modules.define('block-tabs', ['i-bem-dom', 'jquery'], function(provide, bemDom, $) {
 
-provide(BEMDOM.decl(this.name, {
+provide(bemDom.declBlock(this.name, {
     onSetMod: {
         js: {
             inited: function() {
                 var _this = this,
-                    ancors = this.elem('ancor');
+                    tabs = this._elems('tab');
 
-                this._urls = [];
-
-                ancors.each(function() {
-                    _this._urls.push($(this).attr('href').split('#').pop());
+                this._urls = tabs.map(function(ancor) {
+                    return ancor.domElem.attr('href').split('#').pop();
                 });
 
                 this.setCurrentTab();
 
-                this.bindTo(ancors, 'click', function(e) {
+                this._domEvents('tab').on('click', function(e) {
                     // var ancor = $(e.target);
                     // e.preventDefault();
                     // window.history.pushState({}, ancor.text(), ancor.attr('href'));
 
-                    this.updateTab(ancors.index(e.target));
+                    var index = -1;
+                    for (var i = 0, len = tabs.size(); i < len; i++) {
+                        if (tabs.get(i) === e.bemTarget) {
+                            index = i;
+                            break;
+                        }
+                    }
+
+                    _this.updateTab(index);
                 });
             }
         }
@@ -35,14 +41,13 @@ provide(BEMDOM.decl(this.name, {
     updateTab: function(tabIdx) {
         if (tabIdx < 0) return;
 
-        var tabs = this.elem('tab'),
-            panes = this.elem('pane');
+        this._elems('tab')
+            .delMod('current')
+            .get(tabIdx).setMod('current');
 
-        this
-            .delMod(tabs, 'current')
-            .setMod(tabs.eq(tabIdx), 'current')
-            .delMod(panes, 'active')
-            .setMod(panes.eq(tabIdx), 'active');
+        this._elems('pane')
+            .delMod('active')
+            .get(tabIdx).setMod('active');
     }
 }));
 

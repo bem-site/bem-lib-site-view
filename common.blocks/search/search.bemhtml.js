@@ -1,3 +1,3 @@
 block('search')(
-    js()(true)
+    addJs()(true)
 );
