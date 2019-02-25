@@ -1,6 +1,6 @@
 {
   "name": "bem-lib-site-view",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -29,7 +29,7 @@
     "cpy": "^4.0.1",
     "del": "^2.2.1",
     "github-slugger": "^1.1.1",
-    "highlight.js": "^9.5.0",
+    "highlight.js": "9.15.0",
     "js-beautify": "^1.6.3",
     "lodash": "^4.13.1",
     "marked": "^0.3.6",
