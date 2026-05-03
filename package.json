@@ -19,7 +19,7 @@
   "files": [
     "bin",
     "desktop.bundles/**",
-    "*.blocks",
+    "*.blocks/**",
     "lib",
     "index.js"
   ],
